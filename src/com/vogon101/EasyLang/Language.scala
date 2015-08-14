@@ -1,9 +1,8 @@
 package com.vogon101.EasyLang
 
-import scala.collection.immutable.HashMap
-
 /**
  * Created by Freddie Poser on 14/08/2015.
+ *
  */
 class Language (
   val grammar: Grammar
@@ -17,7 +16,12 @@ class Language (
 
     var toks = List[String]()
 
+    var fullMatch = ""
+    grammar.tokens.foreach(U => fullMatch+= "("+U.regex+")?")
+
+
     lines.foreach(L=> {
+      /*
       grammar.tokens.foreach(T => {
         val regex = T.regex + "($| )"
         //println(regex)
@@ -31,6 +35,10 @@ class Language (
         }
       })
       toks = toks :+ ";"
+      */
+      fullMatch.r.findAllMatchIn(L).foreach(M => {
+        M.subgroups.foreach(G => println(G))
+      })
     })
 
 

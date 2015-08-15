@@ -1,12 +1,15 @@
 package com.vogon101.EasyLang.test
 
-import com.vogon101.EasyLang.{ TokenDef, Grammar, Language }
+import com.vogon101.EasyLang.tokenizse.TokenDef
+import com.vogon101.EasyLang.{ Grammar, Language }
 
 /**
  * Created by Freddie Poser on 14/08/2015.
+ *
  */
 object EasyLangTest extends App{
 
+  /**
   val language = new Language(
     new Grammar(
       List(
@@ -19,6 +22,7 @@ object EasyLangTest extends App{
   )
 
   language.tokenize("PRINT $test\nIN $test\n$test PRINT")
+    **/
 
 }
 

@@ -1,4 +1,4 @@
-package com.vogon101.EasyLang
+package com.vogon101.EasyLang1
 
 /**
  * Created by Freddie Poser on 14/08/2015.

@@ -1,10 +1,10 @@
-package com.vogon101.EasyLang.tokenizse
+package com.vogon101.EasyLang1.tokenizse
 
 /**
  * Created by Freddie Poser on 15/08/2015.
  *
  */
-class TokenType extends Enumeration{
+object TokenType extends Enumeration{
 
   type TokenType = Value
   val IDENTIFIER,

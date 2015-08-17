@@ -55,3 +55,10 @@ class PrintParser extends Parser{
   }
 }
 ```
+You can then pass your parsers in a list to the Grammar
+```scala
+List (
+    new InParser(),
+    new PrintParser()
+  )
+```

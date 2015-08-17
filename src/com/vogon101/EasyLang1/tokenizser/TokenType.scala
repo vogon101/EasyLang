@@ -1,4 +1,4 @@
-package com.vogon101.EasyLang1.tokenizse
+package com.vogon101.EasyLang1.tokenizser
 
 /**
  * Created by Freddie Poser on 15/08/2015.

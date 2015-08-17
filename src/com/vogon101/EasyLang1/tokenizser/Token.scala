@@ -1,6 +1,6 @@
-package com.vogon101.EasyLang1.tokenizse
+package com.vogon101.EasyLang1.tokenizser
 
-import com.vogon101.EasyLang1.tokenizse.TokenType.TokenType
+import com.vogon101.EasyLang1.tokenizser.TokenType.TokenType
 
 /**
  * Created by Freddie Poser on 14/08/2015.

@@ -1,15 +1,18 @@
 package com.vogon101.EasyLang1
 
+import com.vogon101.EasyLang1.examples.FBasic.parsers.{InParser, PrintParser}
+import com.vogon101.EasyLang1.tokenizser.Token
+
 /**
  * Created by Freddie Poser on 14/08/2015.
  *
  */
-class Parser[T] {
+abstract class Parser {
 
-}
+  def keyword: String
 
-object Parser {
-  //TODO: Default parsers
+  def parameterNumber: Int
 
-  def defaultParsers : List[Parser[Any]] = ???
+  def execute (params: List[Token], context: Context)
+
 }

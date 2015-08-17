@@ -1,9 +1,10 @@
-package com.vogon101.EasyLang1.tokenizse
+package com.vogon101.EasyLang1.tokenizser
 
 import java.util.regex.{Pattern, Matcher}
 
 import com.vogon101.EasyLang1.Grammar
 
+import scala.collection.mutable.ListBuffer
 import scala.util.matching.Regex
 
 /**
@@ -60,6 +61,14 @@ class Tokenizer (var _code: String, val grammar: Grammar){
     })
 
     throw new IllegalStateException("Could not parse" + code)
+  }
+
+  def fullTokenize(): List[Token] = {
+    val tokens = new ListBuffer[Token]
+    while (hasNextToken){
+      tokens.append(nextToken())
+    }
+    tokens.toList
   }
 }
 

@@ -8,23 +8,33 @@ import scala.collection.mutable.ListBuffer
 import scala.util.matching.Regex
 
 /**
- * Created by Freddie Poser on 15/08/2015.
- *
+ * Class to spilt up a string of code into tokens for parsing
+ * @param _code The string to tokenize
+ * @param grammar The grammar defenition of the language
  */
 class Tokenizer (var _code: String, val grammar: Grammar){
-
-  private val _tokenDatas = grammar.tokenDatas
 
   private var _lastToken: Token = null
   private var _pushBack : Boolean = false
 
+  /** Has more tokens to provide **/
   def hasNextToken = !code.isEmpty
+  /** When nextToken() is called return the last one **/
   def pushBackNext() = if (_lastToken != null) _pushBack = true
+  /** T - Next time nextToken() is called it will return the previous token **/
   def pushBack = _pushBack
+  /** The code be tokenized **/
   def code = _code
+  /** The last token tokenized by nextToken() **/
   def lastToken = _lastToken
-  def tokenDatas = _tokenDatas
+  /** The different types that could be returned **/
+  val tokenDatas = grammar.tokenDatas
 
+  /**
+   * Get the next token, available whilst hasNextToken() == true
+   * Also removes that token from the code to be tokenized
+   * @return The next token
+   */
   def nextToken (): Token = {
     _code = code.trim
 
@@ -63,6 +73,11 @@ class Tokenizer (var _code: String, val grammar: Grammar){
     throw new IllegalStateException("Could not parse" + code)
   }
 
+  /**
+   * Wrapper for nextToken() but fully tokenizes the entire code string
+   * and returns it as a List of Tokens. When done this.code will be empty
+   * @return All the tokens from the string
+   */
   def fullTokenize(): List[Token] = {
     val tokens = new ListBuffer[Token]
     while (hasNextToken){
@@ -94,6 +109,12 @@ object Tokenizer {
     _defaultTokenDatas = new TokenData(pattern, t) :: _defaultTokenDatas
   })
 
+  /**
+   * The default list of TokenDatas for use with ELang-1. It is best
+   * to use these instead of custom ones. They will work with the example
+   * parsers and should be fine for all languages ELang-1 can support
+   * @return The list of default Token definitions
+   */
   def defaultTokenDatas = _defaultTokenDatas
 
 }

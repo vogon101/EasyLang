@@ -4,7 +4,7 @@ import com.vogon101.EasyLang1.examples.FBasic.parsers.{PrintParser, InParser}
 import com.vogon101.EasyLang1.{Parser, LanguageDefinition}
 
 /**
- * Created by Freddie on 17/08/2015.
+ * Example LanguageDefinition for FBasic
  */
 object FBasic extends LanguageDefinition{
 

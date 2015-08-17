@@ -4,8 +4,10 @@ import com.vogon101.EasyLang1.{Context, Parser}
 import com.vogon101.EasyLang1.tokenizser.{TokenType, Token}
 
 /**
- * Created by Freddie on 17/08/2015.
+ * Example parser for an IN command that takes in
+ * user input and stores it in a variable
  *
+ * e.g. IN variableName
  */
 class InParser extends Parser{
 

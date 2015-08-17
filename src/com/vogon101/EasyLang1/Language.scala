@@ -5,8 +5,8 @@ import com.vogon101.EasyLang1.tokenizser.Tokenizer
 import scala.collection.mutable.ListBuffer
 
 /**
- * Created by Freddie Poser on 14/08/2015.
  *
+ * @param grammar
  */
 class Language (
   val grammar: Grammar

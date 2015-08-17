@@ -29,4 +29,36 @@ object FBasicExample extends App{
 }
 ```
 ###Create your own
-To create your own languages you need to define some Parsers. A parser in E-Lang 1 is a keyword followed by some parameters. These parameters are passed as a list of tokens. See some example parsers for inspiration.
+To create your own languages you need to define some Parsers. A parser in E-Lang 1 is a keyword followed by some parameters. These parameters are passed as a list of tokens. See some example parsers for inspiration. Below is an example of a PRINT Parser
+
+```scala
+/**
+ *  Example parser for a print command
+ */
+class PrintParser extends Parser{
+
+  //Data about the command
+  def keyword: String = "PRINT"
+  def parameterNumber: Int = 1
+
+  //Execute the command
+  def execute (params: List[Token], context:Context): Unit = {
+    //Get the parameter
+    val param = params.head
+    //Match the type of token
+    param.TType match {
+        case TokenType.STRING_LITERAL => println(param.token) //Print a string
+        case TokenType.INT_LITERAL    => println(param.token) //Print an integer
+        case TokenType.IDENTIFIER     => println(context.getVariable(param.token)) //Find the variable in the context
+        case _                        => throw new IllegalArgumentException("Illegal arguments for PRINT keyword") //Cannot print any other type
+    }
+  }
+}
+```
+You can then pass your parsers in a list to the Grammar
+```scala
+List (
+    new InParser(),
+    new PrintParser()
+  )
+```

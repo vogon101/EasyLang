@@ -5,15 +5,24 @@ import com.vogon101.EasyLang1.tokenizser.Tokenizer
 import scala.collection.mutable.ListBuffer
 
 /**
- *
- * @param grammar
+ * Class to run a language instance. Takes in a Grammar to define the
+ * language
+ * @param grammar The grammar that defines the language
  */
 class Language (
   val grammar: Grammar
 ){
 
+  /**
+   * The top context of this instance, ie the global variables
+   */
   val superContext = new Context()
 
+  /**
+   * Execute a string of code
+   * @param code The string of code to execute
+   * @param logAll Optional, logging for debugging
+   */
   def execute (code: String, logAll: Boolean = false): Unit = {
     if (logAll)
       println("Starting Tokenize")
@@ -49,6 +58,12 @@ class Language (
 
   }
 
+  /**
+   * If enabled in grammar will return a list of the keyword
+   * capitalized, decapitalized and as passed
+   * @param keyword The keyword to use
+   * @return The list of possibilities
+   */
   def avaliableKeyword (keyword: String): List[String] = {
     val a = new ListBuffer[String]
     a.append(keyword)
